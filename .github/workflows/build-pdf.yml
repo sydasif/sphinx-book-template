@@ -1,0 +1,36 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LaTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex texlive-fonts-recommended texlive-plain-generic \
+            texlive-latex-extra latexmk
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Sphinx dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build PDF
+        run: make -C docs latexpdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-pdf
+          path: docs/build/latex/*.pdf
+          if-no-files-found: error

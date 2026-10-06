@@ -1,0 +1,15 @@
+# Build output
+docs/build/
+docs/_build/
+
+# Python environments
+venv/
+.venv/
+
+# Editors
+.idea/
+.vscode/
+
+# Local drafts and generated PDF copies
+draft/
+my_book/
