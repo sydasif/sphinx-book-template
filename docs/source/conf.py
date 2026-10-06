@@ -43,4 +43,15 @@ latex_elements = {
 \DeclareUnicodeCharacter{279C}{$\rightarrow$}  % ➜  heavy arrow (shell prompt)
 \DeclareUnicodeCharacter{2717}{$\times$}       % ✗  ballot cross
 """,
+    # Use default Computer Modern fonts as fallback if TeX Gyre unavailable
+    "fontpkg": r"""
+% If TeX Gyre fonts are not installed, fall back to Computer Modern
+\IfFileExists{tgtermes.sty}{
+  \usepackage{tgtermes}
+  \usepackage{tgheros}
+  \usepackage{tgcursor}
+}{
+  \usepackage{mathptmx}  % Times-like math font
+}
+""",
 }
