@@ -16,7 +16,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             texlive-xetex texlive-fonts-recommended texlive-fonts-extra \
-            texlive-plain-generic texlive-latex-extra latexmk
+            texlive-plain-generic texlive-latex-extra texlive-latex-recommended \
+            latexmk
+          # Verify TeX Gyre fonts are available
+          kpsewhich tgtermes.sty || (echo "tgtermes.sty not found!" && exit 1)
+          kpsewhich tgheros.sty || (echo "tgheros.sty not found!" && exit 1)
 
       - uses: actions/setup-python@v5
         with:
