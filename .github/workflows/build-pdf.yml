@@ -15,8 +15,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            texlive-xetex texlive-fonts-recommended texlive-plain-generic \
-            texlive-latex-extra latexmk
+            texlive-xetex texlive-fonts-recommended texlive-fonts-extra \
+            texlive-plain-generic texlive-latex-extra latexmk
 
       - uses: actions/setup-python@v5
         with:
