@@ -16,7 +16,12 @@ extensions = [
     "myst_parser",
     "sphinx.ext.duration",
     "sphinx.ext.autosectionlabel",
+    "sphinxcontrib.bibtex",
 ]
+
+# Bibliography settings
+bibtex_bibfiles = ["bibliography.bib"]
+bibtex_reference_style = "label"
 
 templates_path = ["_templates"]
 exclude_patterns = []
