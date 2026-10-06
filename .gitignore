@@ -2,6 +2,10 @@
 docs/build/
 docs/_build/
 
+# Python cache
+__pycache__/
+*.pyc
+
 # Python environments
 venv/
 .venv/
